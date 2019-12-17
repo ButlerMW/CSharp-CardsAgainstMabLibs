@@ -1,0 +1,57 @@
+@using CardsAgainstMadLibs.Models
+@model LoginRegVM
+
+
+<div class="cover-container-sm d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <main role="main" class="inner cover">
+        <!-- <h1 class="mb-5">Cards Against Mad Libs</h1> -->
+        <img id="cardslogolg" src="~/images/cards_against_white_crop.png" alt="cards against logo"/>
+        <img id="madlibslogolg" src="~/images/madlibs.png" alt="cards against logo"/>
+        <div class="row mt-5">
+            <div class="col-sm-6">
+                <h3 class="ml-5">Sign Up</h3>
+                <form asp-action="RegisterNewUser" asp-controller="LoginReg" method="POST">
+                    <span style="display:block; color:red;" asp-validation-for="User.Username"></span>
+                    <span style="display:block; color:red;" asp-validation-for="User.Password"></span>
+                    <span style="display:block; color:red;" asp-validation-for="User.ConfirmPassword"></span>
+                    <div class="row mt-3">
+                        <label class="col-sm-5" asp-for="User.Username"></label>
+                        <input class="col-sm-5" asp-for="User.Username"/>
+                    </div>
+                    <div class="row mt-3">
+                        <label class="col-sm-5" asp-for="User.Password"></label>
+                        <input class="col-sm-5" asp-for="User.Password"/>
+                    </div>
+                    <div class="row mt-3">
+                        <label class="col-sm-5" asp-for="User.ConfirmPassword"></label>
+                        <input class="col-sm-5" asp-for="User.ConfirmPassword"/>
+                    </div>
+                    <input type="submit" class="btn btn-light mt-4" value="Register">
+                </form>
+            </div>
+            <div class="col-sm-6">
+                <h3 class="ml-5">Sign In</h3>
+                <form asp-action="LoginUser" asp-controller="LoginReg" method="POST">
+                    <span style="display:block; color:red;" asp-validation-for="Credentials.Username"></span>
+                    <span style="display:block; color:red;" asp-validation-for="Credentials.Password"></span>
+                    <div class="row mt-3">
+                        <label class="col-sm-5" asp-for="Credentials.Username"></label>
+                        <input class="col-sm-5" asp-for="Credentials.Username"/>
+                    </div>
+                    <div class="row mt-3">
+                        <label class="col-sm-5" asp-for="Credentials.Password"></label>
+                        <input class="col-sm-5" asp-for="Credentials.Password"/>
+                    </div>
+                    <input type="submit" class="btn btn-light mt-4" value="Login">
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer class="mastfoot mt-auto">
+        <div class="inner">
+        <p></p>
+        </div>
+    </footer>
+</div>
+
+

@@ -1,0 +1,12 @@
+<img id="cardslogosm" src="~/images/cards_against_white_crop.png" alt="cards against logo"/>
+<img id="madlibslogosm" src="~/images/madlibs.png" alt="cards against logo"/>
+<h1 class="cardtitle mt-5">Dashboard</h1>
+<form class="form-group row" asp-action="Vote" asp-controller="Game" method="POST">
+    <div class="col-auto">
+        <select class="custom-select mr-sm-2">
+            <option selected disabled>Vote for the Best</option>
+            <option>USERNAMES</option>
+        </select>
+    </div>
+    <input type="submit" class="btn btn-light" value="VOTE">
+</form>

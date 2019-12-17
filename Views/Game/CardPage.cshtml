@@ -1,0 +1,26 @@
+<img id="cardslogosm" src="~/images/cards_against_white_crop.png" alt="cards against logo"/>
+<img id="madlibslogosm" src="~/images/madlibs.png" alt="cards against logo"/>
+<h1 class="cardtitle mt-5">Card title/theme</h1>
+<form asp-action="SubmitCard" asp-controller="Game" asp-method="POST">
+    <div class="row mt-3">
+        <label class="col-4 titlecolumn">NAME</label>
+        <input class="col-5" placeholder="name"/>
+    </div>
+    <div class="row mt-3">
+        <label class="col-4 titlecolumn">VERB ENDING IN -ING</label>
+        <input class="col-5" placeholder="verb"/>
+    </div>
+    <div class="row mt-3">
+        <label class="col-4 titlecolumn">LOCATION</label>
+        <input class="col-5" placeholder="location"/>
+    </div>
+    <div class="row mt-3">
+        <label class="col-4 titlecolumn">NOUN</label>
+        <input class="col-5" placeholder="noun"/>
+    </div>
+    <div class="d-flex flex-row mt-3 justify-content-end">
+        <div class="col-4 mr-4">
+            <input type="submit" class="btn btn-light center" value="Submit Card">
+        </div>
+    </div>
+</form>
