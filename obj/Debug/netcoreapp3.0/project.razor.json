@@ -14349,6 +14349,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Mark\\Desktop\\CodingDojo\\csharp_stack\\CSharpProject\\CardsAgainstMadLibs3.0\\Views\\Home\\ChatDashboard.cshtml",
+      "TargetPath": "Views\\Home\\ChatDashboard.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Mark\\Desktop\\CodingDojo\\csharp_stack\\CSharpProject\\CardsAgainstMadLibs3.0\\Views\\Game\\Dashboard.cshtml",
       "TargetPath": "Views\\Game\\Dashboard.cshtml",
       "FileKind": "mvc"

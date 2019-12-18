@@ -21,13 +21,53 @@ namespace CardsAgainstMadLibs.Controllers
         [HttpGet("/welcome")]
         public IActionResult Welcome()
         {
-            return View();
+            if(dbContext.Cards.Any(Card => Card.CardId == 5)) 
+            {
+                return View();
+            }
+            else
+            {
+                Card card1 = new Card();
+                card1.String1 = "Have you ever wanted to";
+                card1.String2 = "all sorts of";
+                card1.String3 = "with friends, family, and colleagues?";
+                dbContext.Add(card1);
+                dbContext.SaveChanges();
+                Card card2 = new Card();
+                card2.String1 = "We are here to";
+                card2.String2 = "for";
+                card2.String3 = ".";
+                dbContext.Add(card2);
+                dbContext.SaveChanges();
+                Card card3 = new Card();
+                card3.String1 = "The day I";
+                card3.String2 = "the";
+                card3.String3 = ".";
+                dbContext.Add(card3);
+                Card card4 = new Card();
+                dbContext.SaveChanges();
+                card4.String1 = "For my next trick, I will";
+                card4.String2 = "a rabbit out of a/an";
+                card4.String3 = ".";
+                dbContext.Add(card4);
+                dbContext.SaveChanges();
+                Card card5 = new Card();
+                card5.String1 = "It's important to";
+                card5.String2 = "all";
+                card5.String3 = ".";
+                dbContext.Add(card5);
+                dbContext.SaveChanges();
+                return View();
+            }
         }
 
         [HttpGet("/card")]
         public IActionResult CardPage()
         {
-            return View();
+            Random random = new Random();
+            int x = random.Next(1,6);
+            Card thiscard = dbContext.Cards.Where(Card => Card.CardId == x).FirstOrDefault();
+            return View(thiscard);
         }
 
         [HttpPost("/submitcard")]
