@@ -24,6 +24,12 @@ namespace CardsAgainstMadLibs.Controllers
             return View();
         }
 
+        [HttpGet("/chatdashboard")]
+        public IActionResult ChatDashboard()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
