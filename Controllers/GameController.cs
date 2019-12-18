@@ -21,7 +21,10 @@ namespace CardsAgainstMadLibs.Controllers
         [HttpGet("/welcome")]
         public IActionResult Welcome()
         {
-            if(dbContext.Cards.Any(Card => Card.CardId == 5)) 
+            int cardcount = dbContext.Cards.Count();
+            Console.WriteLine(cardcount);
+            // if(dbContext.Cards.Any(Card => Card.CardId == 5)) 
+            if(cardcount >= 5)
             {
                 return View();
             }
@@ -64,10 +67,17 @@ namespace CardsAgainstMadLibs.Controllers
         [HttpGet("/card")]
         public IActionResult CardPage()
         {
+            CardUserVM CardInputModel = new CardUserVM();
             Random random = new Random();
             int x = random.Next(1,6);
-            Card thiscard = dbContext.Cards.Where(Card => Card.CardId == x).FirstOrDefault();
-            return View(thiscard);
+            CardInputModel.Card = dbContext.Cards.Where(Card => Card.CardId == x).FirstOrDefault();
+            int? loggeduserId = HttpContext.Session.GetInt32("currentuser");
+            CardInputModel.User = dbContext.Users.Where(User => User.UserId == loggeduserId).FirstOrDefault();
+            Console.WriteLine("**************************************************************");
+            Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(CardInputModel.Card));
+            Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(CardInputModel.User));
+            Console.WriteLine("**************************************************************");
+            return View(CardInputModel);
         }
 
         [HttpPost("/submitcard")]

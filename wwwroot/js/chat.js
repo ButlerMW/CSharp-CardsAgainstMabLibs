@@ -40,8 +40,9 @@ document.getElementById("sendButton").addEventListener("click", function (event)
     var str1 = document.getElementById("string1").value;
     var str2 = document.getElementById("string2").value;
     var str3 = document.getElementById("string3").value;
-    connection.invoke("SendMessage", verb, message, str1, str2, str3, 1).catch(function (err) {
+    var userId = document.getElementById("loggeduserId").value;
+    connection.invoke("SendMessage", verb, message, str1, str2, str3, userId).catch(function (err) {
         return console.error(err.toString());
     });
-
 }); 
+
