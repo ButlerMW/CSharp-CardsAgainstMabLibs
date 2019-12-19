@@ -140,3 +140,4 @@ main{
 .titlecolumn{
   text-align: end;
 }
+.capitalize { text-transform: capitalize; }

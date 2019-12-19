@@ -10,17 +10,20 @@ connection.on("ReceiveMessage", function (arrayOfMessages = []) {
    var list =document.getElementById("messagesList")
    list.innerHTML = ""; //check out if "this" idea does not work
    arrayOfMessages.forEach(thing => {
-       var li = document.createElement("li"); //change to separate div instead of making a list
+       var li = document.createElement("button"); //change to button instead li
        li.classList.add("btn");
        li.classList.add("btn-dark");
        li.classList.add("my-2");
+       li.classList.add("limit");
+    //    var lim = document.getElementsByClassName("limit")
        li.textContent = thing.encodedMsg + " ---------- " + thing.voteCount;
        li.addEventListener("click", function() {
            // add to the count of this exact card.
            connection.invoke("Vote", thing).catch(function (err) {
                 console.error(err.toString());
             });
-    
+            document.getElementsByClassName("limit").disabled = true; //delete this
+
        });
        list.appendChild(li);
    });
@@ -40,7 +43,8 @@ document.getElementById("sendButton").addEventListener("click", function (event)
     var str1 = document.getElementById("string1").value;
     var str2 = document.getElementById("string2").value;
     var str3 = document.getElementById("string3").value;
-    var userId = document.getElementById("loggeduserId").value;
+    var userId = +document.getElementById("loggeduserId").value;
+    
     connection.invoke("SendMessage", verb, message, str1, str2, str3, userId).catch(function (err) {
         return console.error(err.toString());
     });
