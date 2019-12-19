@@ -125,10 +125,11 @@ main{
   width:  210px;
   height: 90px;
   /* padding-top:75%; */
-  margin-top: 20px;
+  /* margin-top: 20px; */
   /* object-fit: cover; */
   /* -ms-background-position-y: top; */
-  overflow: hidden;
+  /* overflow: hidden; */
+  /* position:fixed; */
 
 
 }
@@ -136,6 +137,10 @@ main{
 #madlibslogosm{
   display: block;
   width: 240px;
+  position: relative;
+  /* margin-top: 20px; */
+
+
   /* height: 10%; */
   /* overflow-y:hidden; */
 }
@@ -154,7 +159,7 @@ main{
 } */
 
 .cardlist{
-  height: 400px;
+  height: 350px;
   overflow-y: auto;
   justify-content: center;
   /* background-color: #202020; */
