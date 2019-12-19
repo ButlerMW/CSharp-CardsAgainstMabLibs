@@ -20,6 +20,9 @@ timerWindow.style.fontSize = "xx-large";
 // timerWindow.textContent = 10;
 timerWindow.style.display = "none";
 
+
+//TIMER********************************************************************
+
 document.body.appendChild(timerWindow);
 connection.on("ReceiveMessage", function (arrayOfMessages = []) {
     // console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
@@ -104,18 +107,26 @@ connection.on("ReceiveMessage", function (arrayOfMessages = []) {
    });
    // loop through arrayOfMessages
 
-
 });
+
+///////////////////////////////////////////////////////////////////////////////////
+// RESET /////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+
        document.getElementById("Reset").addEventListener("click", function (){
            let cardList = document.getElementById("messagesList");
+           console.log("FUCK THIS RESET UP")
         //    while(arrayOfMessages.firstChild){
         //        arrayOfMessages.pop();
         //    }
         //    while (cardList.firstChild){
-        //        cardList.removeChild(cardList.firstChild);
-        //    }
-           cardList.innerHTML = "";
-       
+            //     }
+            // cardList.innerHTML = ""; //leave alone it only hides it not remove it
+            
+            console.log("213456789098765432123456789098765432123456789098765434567890098765432345678");
+            cardList.remove("messagesList");
+            console.log(cardList);
+           
        })
 
 

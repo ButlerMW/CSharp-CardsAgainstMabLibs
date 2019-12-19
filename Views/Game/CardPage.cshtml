@@ -3,21 +3,21 @@
 
     <img id="cardslogosm" src="~/images/cards_against_white_crop.png" alt="cards against logo"/>
     <img id="madlibslogosm" src="~/images/madlibs.png" alt="cards against logo"/>
-    <h1 class="hide-me cardtitle mt-5">Fill Out Your Card</h1>
-    <h1 class="originallyhidden show-me cardtitle mt-5">Click the Card to Vote for Your Favorite</h1>
+    <h1 class="toggle-me cardtitle mt-5">Fill Out Your Card</h1>
+    <h1 class="originallyhidden toggle-me cardtitle mt-5">Click the Card to Vote for Your Favorite</h1>
     <form asp-action="SubmitCard" asp-controller="Game" asp-method="POST">
         <div class="row">&nbsp;</div>
         <div class="row mt-3">
-            <label class="hide-me col-4 titlecolumn">Provide an Adjective</label>
-            <input class="hide-me col-5" id="userInput" type="text" onkeyup="this.value = this.value.toUpperCase();"/>
+            <label class="toggle-me col-4 titlecolumn">Provide an Adjective</label>
+            <input class="toggle-me col-5" id="userInput" type="text" onkeyup="this.value = this.value.toUpperCase();"/>
 
-            
-            <a href="/welcome"><input style="display: none" type="button" id="Reset" class="show-me btn btn-light center" value="Reset??"></a>
+            <input style="display: none" type="button" id="Reset" class="btn btn-light center toggle-me" value="Play Again">
+            <a href="/logout"><input style="display: none" type="button" id="Reset" class="btn btn-light center toggle-me" value="Logout"></a>
 
         </div>
         <div class="row mt-3">
-            <label class="hide-me col-4 titlecolumn">Provide a Person</label>
-            <input class="hide-me col-5" id="messageInput" type="text" onkeyup="this.value = this.value.toUpperCase();"/>
+            <label class="toggle-me col-4 titlecolumn">Provide a Noun</label>
+            <input class="toggle-me col-5" id="messageInput" type="text" onkeyup="this.value = this.value.toUpperCase();"/>
         </div>
         <div class="row mt-3">
             <input type="hidden" class="col-5" id="string1" value="@Model.Card.String1"/>
@@ -28,7 +28,7 @@
         <div class="row">&nbsp;</div>
         <div class="d-flex flex-row mt-3 justify-content-end">
             <div class="col-4 mr-4">
-                <input type="button" id="sendButton" class="hide hide-me btn btn-light center" value="Submit Card">
+                <input type="button" id="sendButton" class="submit-reset toggle-me btn btn-light center" value="Submit Card">
             </div>
         </div>
     </form>
@@ -45,13 +45,12 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
-        $('.hide').click(function(){ 
-            $('.hide-me').hide()
+        $('.submit-reset').click(function(){ 
+            $('.toggle-me').toggle()
         });
-        $('.hide').click(function(){
-            $('.show-me').show()
-        });  
     });
+ 
+    
 
   
 

@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 using CardsAgainstMadLibs.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Http;
+using CardsAgainstMadLibs.Hubs;
 
 namespace CardsAgainstMadLibs.Controllers
 {
+    
     public class GameController : Controller
     {
         private CardsAgainstMadLibsContext dbContext;
@@ -21,6 +23,10 @@ namespace CardsAgainstMadLibs.Controllers
         [HttpGet("/welcome")]
         public IActionResult Welcome()
         {
+            if(HttpContext.Session.GetInt32("currentuser") == null)
+            {
+                return Redirect("/loginreg");
+            }
             int cardcount = dbContext.Cards.Count();
             Console.WriteLine(cardcount);
             // if(dbContext.Cards.Any(Card => Card.CardId == 5)) 
@@ -127,6 +133,10 @@ namespace CardsAgainstMadLibs.Controllers
         [HttpGet("/card")]
         public IActionResult CardPage()
         {
+            if(HttpContext.Session.GetInt32("currentuser") == null)
+            {
+                return Redirect("/loginreg");
+            }
             CardUserVM CardInputModel = new CardUserVM();
             Random random = new Random();
             int x = random.Next(1,16);
@@ -140,6 +150,7 @@ namespace CardsAgainstMadLibs.Controllers
             return View(CardInputModel);
         }
 
+        
         // [HttpPost("/submitcard")]
         // public IActionResult SubmitCard()
         // {

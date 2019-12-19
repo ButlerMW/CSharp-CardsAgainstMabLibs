@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using CardsAgainstMadLibs3._0.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace CardsAgainstMadLibs.Controllers
 {
@@ -21,12 +22,20 @@ namespace CardsAgainstMadLibs.Controllers
         [HttpGet("/chat")]
         public IActionResult Index()
         {
+            if(HttpContext.Session.GetInt32("currentuser") == null)
+            {
+                return Redirect("/loginreg");
+            }
             return View();
         }
 
         [HttpGet("/chatdashboard")]
         public IActionResult ChatDashboard()
         {
+            if(HttpContext.Session.GetInt32("currentuser") == null)
+            {
+                return Redirect("/loginreg");
+            }
             return View();
         }
 
