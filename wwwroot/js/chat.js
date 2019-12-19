@@ -136,6 +136,7 @@ document.getElementById("sendButton").addEventListener("click", function (event)
     var str2 = document.getElementById("string2").value;
     var str3 = document.getElementById("string3").value;
     var userId = +document.getElementById("loggeduserId").value;
+    
     connection.invoke("SendMessage", verb, message, str1, str2, str3, userId).catch(function (err) {
         return console.error(err.toString());
     });
