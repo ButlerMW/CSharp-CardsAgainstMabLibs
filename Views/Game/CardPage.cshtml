@@ -1,40 +1,40 @@
 @using CardsAgainstMadLibs.Models
 @model CardUserVM
 
-<img id="cardslogosm" src="~/images/cards_against_white_crop.png" alt="cards against logo"/>
-<img id="madlibslogosm" src="~/images/madlibs.png" alt="cards against logo"/>
-<h1 class="cardtitle mt-5">Card title/theme</h1>
-<form asp-action="SubmitCard" asp-controller="Game" asp-method="POST">
-    <div class="row">&nbsp;</div>
-    <div class="row mt-3">
-        <label class="hide-me col-4 titlecolumn">Verb</label>
-        <input class="hide-me col-5" id="userInput"/>
+    <img id="cardslogosm" src="~/images/cards_against_white_crop.png" alt="cards against logo"/>
+    <img id="madlibslogosm" src="~/images/madlibs.png" alt="cards against logo"/>
+    <h1 class="hide-me cardtitle mt-5">Fill Out Your Card</h1>
+    <h1 class="originallyhidden show-me cardtitle mt-5">Click the Card to Vote for Your Favorite</h1>
+    <form asp-action="SubmitCard" asp-controller="Game" asp-method="POST">
+        <div class="row">&nbsp;</div>
+        <div class="row mt-3">
+            <label class="hide-me col-4 titlecolumn">Provide an Adjective</label>
+            <input class="hide-me col-5" id="userInput" type="text" onkeyup="this.value = this.value.toUpperCase();"/>
 
-        
-        <input style="display: none" type="button" id="PROTO" class="show-me btn btn-light center" value="Reset??">
+            
+            <a href="/welcome"><input style="display: none" type="button" id="Reset" class="show-me btn btn-light center" value="Reset??"></a>
 
-    </div>
-    <div class="row mt-3">
-        <label class="hide-me col-4 titlecolumn">Noun</label>
-        <input class="hide-me col-5" id="messageInput"/>
-    </div>
-    <div class="row mt-3">
-        <input type="hidden" class="col-5" id="string1" value="@Model.Card.String1"/>
-        <input type="hidden" class="col-5" id="string2" value="@Model.Card.String2"/>
-        <input type="hidden" class="col-5" id="string3" value="@Model.Card.String3"/>
-        <input type="hidden" class="col-5" id="loggeduserId" value="@Model.User.UserId"/>
-    </div>
-    <div class="row">&nbsp;</div>
-    <div class="d-flex flex-row mt-3 justify-content-end">
-        <div class="col-4 mr-4">
-            <input type="button" id="sendButton" class="hide hide-me btn btn-light center" value="Submit Card">
         </div>
-    </div>
-</form>
-<h3>@Model.User.UserId</h3>
+        <div class="row mt-3">
+            <label class="hide-me col-4 titlecolumn">Provide a Person</label>
+            <input class="hide-me col-5" id="messageInput" type="text" onkeyup="this.value = this.value.toUpperCase();"/>
+        </div>
+        <div class="row mt-3">
+            <input type="hidden" class="col-5" id="string1" value="@Model.Card.String1"/>
+            <input type="hidden" class="col-5" id="string2" value="@Model.Card.String2"/>
+            <input type="hidden" class="col-5" id="string3" value="@Model.Card.String3"/>
+            <input type="hidden" class="col-5" id="loggeduserId" value="@Model.User.UserId"/>
+        </div>
+        <div class="row">&nbsp;</div>
+        <div class="d-flex flex-row mt-3 justify-content-end">
+            <div class="col-4 mr-4">
+                <input type="button" id="sendButton" class="hide hide-me btn btn-light center" value="Submit Card">
+            </div>
+        </div>
+    </form>
 
-<div class="row">
-    <div class="col-6">
+<div class="row cardlist">
+    <div class="col-12 justify-content-center">
         <ul id="messagesList"></ul>
     </div>
 </div>

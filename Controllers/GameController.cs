@@ -73,35 +73,35 @@ namespace CardsAgainstMadLibs.Controllers
             CardInputModel.Card = dbContext.Cards.Where(Card => Card.CardId == x).FirstOrDefault();
             int? loggeduserId = HttpContext.Session.GetInt32("currentuser");
             CardInputModel.User = dbContext.Users.Where(User => User.UserId == loggeduserId).FirstOrDefault();
-            Console.WriteLine("**************************************************************");
-            Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(CardInputModel.Card));
-            Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(CardInputModel.User));
-            Console.WriteLine("**************************************************************");
+            // Console.WriteLine("**************************************************************");
+            // Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(CardInputModel.Card));
+            // Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(CardInputModel.User));
+            // Console.WriteLine("**************************************************************");
             return View(CardInputModel);
         }
 
-        [HttpPost("/submitcard")]
-        public IActionResult SubmitCard()
-        {
-            return RedirectToAction("Dashboard");
-        }
+        // [HttpPost("/submitcard")]
+        // public IActionResult SubmitCard()
+        // {
+        //     return RedirectToAction("Dashboard");
+        // }
 
-        [HttpGet("/dashboard")]
-        public IActionResult Dashboard()
-        {
-            return View();
-        }
+        // [HttpGet("/dashboard")]
+        // public IActionResult Dashboard()
+        // {
+        //     return View();
+        // }
 
-        [HttpPost("/vote")]
-        public IActionResult Vote()
-        {
-            return RedirectToAction("WinnerPage");
-        }
+        // [HttpPost("/vote")]
+        // public IActionResult Vote()
+        // {
+        //     return RedirectToAction("WinnerPage");
+        // }
 
-        [HttpGet("/winner")]
-        public IActionResult WinnerPage()
-        {
-            return View();
-        }
+        // [HttpGet("/winner")]
+        // public IActionResult WinnerPage()
+        // {
+        //     return View();
+        // }
     }
 }
