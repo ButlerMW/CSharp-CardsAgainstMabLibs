@@ -4,14 +4,7 @@ var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
 
 // Disable send button until connection is established
 
-$(document).ready(function () {
-    console.log("document has loaded");
-    $('.hide').click(function () {
-        $('.hide-me').hide()
-    });
-    $('.hide').click(function () {
-        $('.show-me').show()
-    });
+    
     document.getElementById("sendButton").disabled = true;
     let timer;
     // let countdown = 30;
@@ -31,6 +24,7 @@ $(document).ready(function () {
     timerWindow.style.display = "none";
     timerWindow.style.display = "inline";
     var resetbutton = document.getElementById("Reset");
+    var logoutbutton = document.getElementById("Logout");
     var voteline = document.getElementById("VoteLine");
     var winnerline = document.getElementById("winnerline");
     document.body.appendChild(timerWindow);
@@ -54,6 +48,7 @@ $(document).ready(function () {
                 console.log(winnername);
                 
                 resetbutton.style.display = "inline";
+                logoutbutton.style.display = "inline";
                 let cardList = document.getElementById("messagesList");
                 cardList.innerHTML = "";
                 winnerline.style.display = "block";
@@ -130,7 +125,7 @@ $(document).ready(function () {
             li.style.marginRight = "3%";
             li.style.backgroundColor = "#202020";
             //    li.classList.add("limitvote");
-            li.textContent = cardInput.encodedMsg + "-------------->  VOTES: " + cardInput.voteCount;
+            li.textContent = cardInput.encodedMsg;
             li.addEventListener("click", function () {
                 // add to the count of this exact card.
                 //    li.classList.add("disabled");
@@ -149,19 +144,13 @@ $(document).ready(function () {
 
 
     });
+
     document.getElementById("Reset").addEventListener("click", function () {
         let cardList = document.getElementById("messagesList");
-        //    while(arrayOfMessages.firstChild){
-        //        arrayOfMessages.pop();
-        //    }
-        //    while (cardList.firstChild){
-        //        cardList.removeChild(cardList.firstChild);
-        //    }
-        //    location.reload(true);
+
         connection.invoke("PlayAgain").catch(function (err) {
             console.error(err.toString());
         });
-        //    cardList.textContent = "";
     })
 
 
@@ -188,4 +177,4 @@ $(document).ready(function () {
         });
     });
 
-});
+
