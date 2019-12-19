@@ -13,7 +13,7 @@
             <input class="col-5 toggle-me" id="userInput" type="text" onkeyup="this.value = this.value.toUpperCase();"/>
 
             <a href="/welcome"><input style="display: none" type="button" id="Reset" class="btn btn-light center" value="Play Again?"></a>
-            <a href="/logout"><input style="display: none" type="button" id="Logout" class="btn btn-light center " value="Logout"></a>
+            <a href="/logout"><input style="display: none" type="button" id="Logout" class="btn btn-light center mx-3" value="Logout"></a>
 
         </div>
         <div class="row mt-3">
@@ -46,7 +46,7 @@
 $(document).ready(function () {
         console.log("document has loaded");
         $('.submit').click(function () {
-            $('.toggle-me').hide()
+            $('.toggle-me').toggle()
         });
     });
 </script>

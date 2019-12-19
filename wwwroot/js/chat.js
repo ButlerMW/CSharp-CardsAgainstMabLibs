@@ -32,7 +32,7 @@ var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
     // var countdown;
 
     function ResetTimer() {
-        let seconds = 10;
+        let seconds = 30;
         return setInterval(() => {
             seconds--;
             console.log(seconds);
@@ -95,7 +95,7 @@ var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
 
 
 
-        timerWindow.textContent = 10;
+        timerWindow.textContent = 30;
         if (!timers["interval"]) {
 
             timers["interval"] = ResetTimer();
