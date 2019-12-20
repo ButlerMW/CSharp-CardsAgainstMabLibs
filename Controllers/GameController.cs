@@ -30,7 +30,7 @@ namespace CardsAgainstMadLibs.Controllers
             int cardcount = dbContext.Cards.Count();
             Console.WriteLine(cardcount);
             // if(dbContext.Cards.Any(Card => Card.CardId == 5)) 
-            if(cardcount >= 15)
+            if(cardcount >= 27)
             {
                 return View();
             }
@@ -126,6 +126,78 @@ namespace CardsAgainstMadLibs.Controllers
                 card15.String3 = ".";
                 dbContext.Add(card15);
                 dbContext.SaveChanges();
+                Card card16 = new Card();
+                card16.String1 = "Christmas is a";
+                card16.String2 = "time for celebrating the one and only";
+                card16.String3 = ".";
+                dbContext.Add(card16);
+                dbContext.SaveChanges();
+                Card card17 = new Card();
+                card17.String1 = "Your mom likes her men";
+                card17.String2 = "just like";
+                card17.String3 = ".";
+                dbContext.Add(card17);
+                dbContext.SaveChanges();
+                Card card18 = new Card();
+                card18.String1 = "Without a";
+                card18.String2 = "face,";
+                card18.String3 = "would be out of a job.";
+                dbContext.Add(card18);
+                dbContext.SaveChanges();
+                Card card19 = new Card();
+                card19.String1 = "Crying like a";
+                card19.String2 = "child won't make";
+                card19.String3 = "respect you.";
+                dbContext.Add(card19);
+                dbContext.SaveChanges();
+                Card card20 = new Card();
+                card20.String1 = "I like to smell my";
+                card20.String2 = "fingers after touching";
+                card20.String3 = "'s feet.";
+                dbContext.Add(card20);
+                dbContext.SaveChanges();
+                Card card21 = new Card();
+                card21.String1 = "Danger:";
+                card21.String2 = "Material left in the bathroom by";
+                card21.String3 = ".";
+                dbContext.Add(card21);
+                dbContext.SaveChanges();
+                Card card22 = new Card();
+                card22.String1 = "In an emergency, use";
+                card22.String2 = "powder to save";
+                card22.String3 = "'s life";
+                dbContext.Add(card22);
+                dbContext.SaveChanges();
+                Card card23 = new Card();
+                card23.String1 = "Baseball is a";
+                card23.String2 = "sport,";
+                card23.String3 = "says so.";
+                dbContext.Add(card23);
+                dbContext.SaveChanges();
+                Card card24 = new Card();
+                card24.String1 = "Cancel your plans for Friday,";
+                card24.String2 = "dinner with";
+                card24.String3 = ".";
+                dbContext.Add(card24);
+                dbContext.SaveChanges();
+                Card card25 = new Card();
+                card25.String1 = "Can you bring my";
+                card25.String2 = "shoes?";
+                card25.String3 = "Stole my other pair.";
+                dbContext.Add(card25);
+                dbContext.SaveChanges();
+                Card card26 = new Card();
+                card26.String1 = "Drink that";
+                card26.String2 = "potion. It helped";
+                card26.String3 = "win the Nobel Prize.";
+                dbContext.Add(card26);
+                dbContext.SaveChanges();
+                Card card27 = new Card();
+                card27.String1 = "I don't think I'm all that";
+                card27.String2 = "but";
+                card27.String3 = "disagrees.";
+                dbContext.Add(card27);
+                dbContext.SaveChanges();
                 return View();
             }
         }
@@ -139,7 +211,8 @@ namespace CardsAgainstMadLibs.Controllers
             }
             CardUserVM CardInputModel = new CardUserVM();
             Random random = new Random();
-            int x = random.Next(1,16);
+            // int x = random.Next(1,16); //Noun
+            int x = random.Next(16,27); //Person
             CardInputModel.Card = dbContext.Cards.Where(Card => Card.CardId == x).FirstOrDefault();
             int? loggeduserId = HttpContext.Session.GetInt32("currentuser");
             CardInputModel.User = dbContext.Users.Where(User => User.UserId == loggeduserId).FirstOrDefault();

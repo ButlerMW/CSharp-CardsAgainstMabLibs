@@ -48,7 +48,7 @@ namespace CardsAgainstMadLibs.Hubs {
             string winnernametodisplay = winnercard[0].Username;
             
             // List<CardSubmission> listwinner = (List<CardSubmission>)winner;
-            System.Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(winnercard));
+            // System.Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(winnercard));
 
 
             // System.Console.WriteLine("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");

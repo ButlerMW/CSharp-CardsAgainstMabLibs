@@ -3,9 +3,10 @@
 
     <img id="cardslogosm" src="~/images/cards_against_white_crop.png" alt="cards against logo"/>
     <img id="madlibslogosm" src="~/images/madlibs.png" alt="cards against logo"/>
-    <h1 class="toggle-me cardtitle mt-5">Fill Out Your Card</h1>
-    <h1 class="originallyhidden toggle-me cardtitle mt-5" id="VoteLine">Click the Card to Vote for Your Favorite</h1>
-    <h1 class="originallyhidden cardtitle mt-5" id="winnerline"></h1>
+    <h1 class="toggle-me cardtitle mt-4">Fill Out Your Card</h1>
+    <h1 class="originallyhidden toggle-me cardtitle mt-4" id="VoteLine">Click the Card to Vote for Your Favorite</h1>
+    <h3 class="originallyhidden cardtitle" id="VoteThanks">Thanks for Voting!</h3>
+    <h1 class="originallyhidden cardtitle mt-4" id="winnerline"></h1>
     <form asp-action="SubmitCard" asp-controller="Game" asp-method="POST">
         <div class="row">&nbsp;</div>
         <div class="row mt-3">
@@ -17,8 +18,8 @@
 
         </div>
         <div class="row mt-3">
-            <label class="col-4 titlecolumn toggle-me">Provide a Noun</label>
-            <input class="col-5 toggle-me" id="messageInput" type="text" onkeyup="this.value = this.value.toUpperCase();"/>
+            <label class="col-4 titlecolumn toggle-me">Provide a Person</label>
+            <input class="col-5 toggle-me" id="messageInput" type="text" onkeyup="this.value = this.value.toUpperCase();" placeholder="Dead? Alive? Relative? Celebrity?"/>
         </div>
         <div class="row mt-3">
             <input type="hidden" class="col-5" id="string1" value="@Model.Card.String1"/>
@@ -34,7 +35,10 @@
             </div>
         </div>
     </form>
-
+<iframe id="winnergif1" class="originallyhidden" src="https://giphy.com/embed/axu6dFuca4HKM" width="480" height="228" frameBorder="0" class="winnergif giphy-embed" allowFullScreen></iframe>
+<iframe id="winnergif2" class="originallyhidden" src="https://giphy.com/embed/KYElw07kzDspaBOwf9" width="480" height="234" frameBorder="0" class="winnergif giphy-embed" allowFullScreen></iframe>
+<iframe id="winnergif3" class="originallyhidden" src="https://giphy.com/embed/BlVnrxJgTGsUw" width="396" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+<p class="justify-content-center" style="display:flex;"><iframe id="winnergif4" class="originallyhidden" src="https://giphy.com/embed/QlvPwCTw59B2E" width="480" height="346" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></p>
 <div class="row cardlist">
     <div class="col-12 justify-content-center">
         <ul id="messagesList"></ul>

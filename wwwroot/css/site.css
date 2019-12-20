@@ -57,10 +57,10 @@ body {
 html,
 
 body{
-  height: 100%;
+  height: auto;
   width: auto;
   background-image: url('../images/gray_marble.jpg');
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   background-size: 100%, 100%;
   background-attachment: fixed;
 }

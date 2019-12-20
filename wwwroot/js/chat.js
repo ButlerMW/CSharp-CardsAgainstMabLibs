@@ -27,6 +27,13 @@ var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
     var logoutbutton = document.getElementById("Logout");
     var voteline = document.getElementById("VoteLine");
     var winnerline = document.getElementById("winnerline");
+    var thanksforvoting = document.getElementById("VoteThanks");
+    var winnergif1 = document.getElementById("winnergif1");
+    var winnergif2 = document.getElementById("winnergif2");
+    var winnergif3 = document.getElementById("winnergif3");
+    var winnergif4 = document.getElementById("winnergif4");
+
+    // document.body.appendChild(winnergif);
     document.body.appendChild(timerWindow);
     // var seconds = document.getElementById("timerWindow").textContent;
     // var countdown;
@@ -57,7 +64,12 @@ var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
                 winnername.then(function(result){
                     winnerline.textContent = ("Congratulations, " + result + " is the winner!");
                 })
-                
+                thanksforvoting.style.display = "none";
+                // winnergif1.style.display = "inline-block";
+                // winnergif2.style.display = "inline-block";
+                // winnergif3.style.display = "inline-block";
+                winnergif4.style.display = "block";
+                timerWindow.style.display = "none";
                 gameover = true;
             }
         }, 1000);
@@ -134,6 +146,7 @@ var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
                         console.error(err.toString());
                     });
                     hasvoted = true;
+                    thanksforvoting.style.display = "block";
                 }
                 // document.getElementsByClassName("limitvote").disabled = true;
             });
